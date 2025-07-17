@@ -325,7 +325,7 @@ function App() {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="rules-header">
-                  <h3>🎨 神來一筆遊戲規則</h3>
+                  <h3>🎨 遊戲規則</h3>
                   <button 
                     className="close-btn"
                     onClick={() => setShowRules(false)}
