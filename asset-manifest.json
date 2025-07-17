@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/pictomania-frontend/static/css/main.387a64df.css",
-    "main.js": "/pictomania-frontend/static/js/main.4fff06cf.js",
+    "main.js": "/pictomania-frontend/static/js/main.6e3dfa58.js",
     "static/js/453.4fbc242d.chunk.js": "/pictomania-frontend/static/js/453.4fbc242d.chunk.js",
     "static/media/傑尼龜.png": "/pictomania-frontend/static/media/傑尼龜.92d4eeef5107cc2bce59.png",
     "static/media/妙蛙種子.png": "/pictomania-frontend/static/media/妙蛙種子.0c7aca3b0a16e4201bcc.png",
     "index.html": "/pictomania-frontend/index.html",
     "main.387a64df.css.map": "/pictomania-frontend/static/css/main.387a64df.css.map",
-    "main.4fff06cf.js.map": "/pictomania-frontend/static/js/main.4fff06cf.js.map",
+    "main.6e3dfa58.js.map": "/pictomania-frontend/static/js/main.6e3dfa58.js.map",
     "453.4fbc242d.chunk.js.map": "/pictomania-frontend/static/js/453.4fbc242d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.387a64df.css",
-    "static/js/main.4fff06cf.js"
+    "static/js/main.6e3dfa58.js"
   ]
 }
