@@ -1,0 +1,366 @@
+/* 遊戲容器 */
+.game {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* 遊戲標題 */
+.game-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.game-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.game-info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.difficulty-indicator {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* 抽卡動畫區域 */
+.card-animation-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.card-deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.deck-stack {
+  position: relative;
+  width: 120px;
+  height: 160px;
+}
+
+.deck-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #667eea, #764ba2);
+  border-radius: 15px;
+  border: 2px solid #fff;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.deck-text {
+  font-size: 1.3rem;
+  color: #34495e;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+}
+
+.dealing-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.dealing-text {
+  font-size: 1.3rem;
+  color: #34495e;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+}
+
+.dealing-animation {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.dealing-card {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.pokemon-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.pokemon-symbol img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  filter: brightness(1.2) drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+/* 卡片槽位區域 */
+.card-slots-area {
+  width: 100%;
+  max-width: 1600px;
+  margin: 2rem 0;
+}
+
+.slots-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+/* 遊戲說明 */
+.game-instructions {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  backdrop-filter: blur(10px);
+  max-width: 600px;
+}
+
+.game-instructions h3 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.game-instructions p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0.8rem 0;
+}
+
+/* 遊戲控制按鈕 */
+.game-controls {
+  margin-top: 2rem;
+}
+
+.reset-game-btn {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(238, 90, 82, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.reset-game-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(238, 90, 82, 0.4);
+}
+
+.reset-icon {
+  font-size: 1.3rem;
+}
+
+/* 響應式設計 */
+@media (max-width: 1400px) {
+  .game {
+    max-width: 1200px;
+    padding: 1.5rem;
+  }
+  
+  .slots-container {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .game {
+    padding: 1rem;
+  }
+  
+  .game-title {
+    font-size: 2.5rem;
+  }
+  
+  .slots-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .dealing-card {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .pokemon-symbol img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .game {
+    padding: 1rem;
+  }
+  
+  .game-title {
+    font-size: 2rem;
+  }
+  
+  .game-info {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .difficulty-indicator {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .slots-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .dealing-animation {
+    gap: 1rem;
+  }
+  
+  .dealing-card {
+    width: 80px;
+    height: 80px;
+    font-size: 1.2rem;
+  }
+  
+  .pokemon-symbol img {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .game-instructions {
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+  
+  .game-instructions h3 {
+    font-size: 1.5rem;
+  }
+  
+  .game-instructions p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-title {
+    font-size: 1.8rem;
+  }
+  
+  .deck-text,
+  .dealing-text {
+    font-size: 1.1rem;
+  }
+  
+  .dealing-card {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .pokemon-symbol img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .reset-game-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* 動畫效果 */
+@keyframes cardFlip {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes cardDeal {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(100px) translateY(-50px) rotate(180deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* 減少動畫模式支援 */
+@media (prefers-reduced-motion: reduce) {
+  .deck-text {
+    animation: none;
+  }
+  
+  .dealing-card {
+    animation: none;
+  }
+  
+  .reset-game-btn::before {
+    display: none;
+  }
+} 

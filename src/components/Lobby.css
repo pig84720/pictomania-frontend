@@ -1,0 +1,352 @@
+/* Lobby 主容器 */
+.lobby {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-xl);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+
+
+/* 遊戲 Logo 區域 */
+.game-logo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logo-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  animation: bounce 2s infinite;
+}
+
+.game-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* 使用統計顯示 */
+.usage-display {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  flex-wrap: wrap;
+}
+
+.usage-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.usage-icon {
+  font-size: 1.2rem;
+}
+
+.usage-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.reset-all-link {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+}
+
+.reset-all-link:hover {
+  background: linear-gradient(135deg, #ff5252 0%, #ff8f00 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+}
+
+/* 難度選擇區域 */
+.difficulty-section {
+  width: 100%;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.difficulty-section h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.difficulty-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.difficulty-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--bg-card);
+  border: 3px solid transparent;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.difficulty-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.difficulty-btn:hover::before {
+  left: 100%;
+}
+
+.difficulty-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.difficulty-btn.selected {
+  border-color: var(--difficulty-color);
+  background: var(--difficulty-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.difficulty-emoji {
+  font-size: 2rem;
+  display: block;
+}
+
+.difficulty-name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* 錯誤訊息 */
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--warning-color);
+  color: white;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+
+.error-icon {
+  font-size: 1.2rem;
+}
+
+/* 開始遊戲按鈕區域 */
+.start-game-section {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.start-game-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1.2rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-md);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.start-game-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.start-game-btn:hover::before {
+  left: 100%;
+}
+
+.start-game-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.start-game-btn:disabled {
+  background: var(--text-light);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.start-game-btn:disabled::before {
+  display: none;
+}
+
+.start-icon {
+  font-size: 1.2rem;
+}
+
+/* 載入動畫 */
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 遊戲說明 */
+.game-description {
+  text-align: center;
+  max-width: 400px;
+}
+
+.game-description p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .lobby {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+  
+  .game-title {
+    font-size: 2.5rem;
+  }
+  
+  .logo-icon {
+    font-size: 3rem;
+  }
+  
+  .usage-display {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .difficulty-buttons {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+  }
+  
+  .start-game-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lobby {
+    padding: 1rem;
+  }
+  
+  .game-title {
+    font-size: 2rem;
+  }
+  
+  .logo-icon {
+    font-size: 2.5rem;
+  }
+  
+  .usage-display {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .usage-text {
+    font-size: 0.9rem;
+  }
+  
+  .reset-all-link {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .difficulty-buttons {
+    gap: 0.5rem;
+  }
+  
+  .difficulty-btn {
+    padding: 0.75rem;
+  }
+} 
