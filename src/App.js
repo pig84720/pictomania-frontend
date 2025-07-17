@@ -185,6 +185,7 @@ function App() {
       
       // 重置遊戲狀態
       resetGame();
+      alert('遊戲已完全重置！');
     }
   };
 
@@ -204,18 +205,8 @@ function App() {
     if (confirmed) {
       setScores(INITIAL_SCORES);
       saveScores(INITIAL_SCORES);
+      alert('所有分數已重置！');
     }
-  };
-
-  // 獲取使用統計
-  const getUsageStats = () => {
-    const totalUsed = usedCards.size;
-    const byDifficulty = {};
-    
-    // 這裡可以根據實際需求統計各難度的使用情況
-    // 需要解析 cardId 來獲取難度信息
-    
-    return { totalUsed, byDifficulty };
   };
 
   // 頁面切換動畫配置
@@ -291,6 +282,7 @@ function App() {
                 isLoading={isLoading}
                 error={error}
                 usedCardsCount={usedCards.size}
+                totalCards={Object.keys(DIFFICULTIES).length * 10} // 假設每個難度有10張卡
                 onResetAll={resetAllGame}
               />
             </motion.div>
@@ -422,21 +414,12 @@ function App() {
               >
                 <div className="scores-header">
                   <h3>📊 計分板</h3>
-                  <div className="scores-header-buttons">
-                    <button 
-                      className="reset-scores-btn"
-                      onClick={resetScores}
-                      title="重置所有分數"
-                    >
-                      🔄
-                    </button>
-                    <button 
-                      className="close-btn"
-                      onClick={() => setShowScores(false)}
-                    >
-                      ×
-                    </button>
-                  </div>
+                  <button 
+                    className="close-btn"
+                    onClick={() => setShowScores(false)}
+                  >
+                    ×
+                  </button>
                 </div>
                 
                 <div className="scores-content">
@@ -448,7 +431,15 @@ function App() {
                           type="number"
                           className="score-input"
                           value={score}
-                          onChange={(e) => updateScore(teamId, parseInt(e.target.value) || 0)}
+                          onChange={(e) => {
+                            const value = e.target.value;
+                            // 允許輸入框暫時清空，但在 state 中存儲為 0
+                            const newScore = value === '' ? 0 : parseInt(value, 10);
+                            // 確保不會寫入 NaN
+                            if (!isNaN(newScore)) {
+                              updateScore(teamId, newScore);
+                            }
+                          }}
                           min="0"
                           max="999"
                         />
@@ -484,10 +475,10 @@ function App() {
                     </div>
                     <button 
                       className="reset-all-btn"
-                      onClick={resetAllGame}
-                      title="完全重置遊戲"
+                      onClick={resetScores}
+                      title="重置所有分數"
                     >
-                      🔄 完全重置
+                      🔄 重置分數
                     </button>
                   </div>
                 </div>

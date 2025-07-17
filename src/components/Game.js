@@ -16,37 +16,36 @@ const Game = ({
 
   useEffect(() => {
     // 開始抽卡動畫序列
-    startCardAnimation();
-  }, []);
-
-  const startCardAnimation = () => {
-    // 第一階段：顯示牌堆
-    setTimeout(() => {
-      setAnimationPhase('dealing');
-    }, 1000);
-
-    // 第二階段：逐張發牌
-    setTimeout(() => {
-      dealCards();
-    }, 1500);
-  };
-
-  const dealCards = () => {
-    cards.forEach((card, index) => {
+    const startCardAnimation = () => {
+      // 第一階段：顯示牌堆
       setTimeout(() => {
-        const pokemon = getPokemonByIndex(index);
-        setVisibleCards(prev => [...prev, { ...card, pokemon }]);
-        
-        // 如果是最後一張卡片，結束動畫
-        if (index === cards.length - 1) {
-          setTimeout(() => {
-            setAnimationPhase('finished');
-            setShowCardAnimation(false);
-          }, 500);
-        }
-      }, index * 300);
-    });
-  };
+        setAnimationPhase('dealing');
+      }, 1000);
+  
+      // 第二階段：逐張發牌
+      setTimeout(() => {
+        const dealCards = () => {
+          cards.forEach((card, index) => {
+            setTimeout(() => {
+              const pokemon = getPokemonByIndex(index);
+              setVisibleCards(prev => [...prev, { ...card, pokemon }]);
+              
+              // 如果是最後一張卡片，結束動畫
+              if (index === cards.length - 1) {
+                setTimeout(() => {
+                  setAnimationPhase('finished');
+                  setShowCardAnimation(false);
+                }, 500);
+              }
+            }, index * 300);
+          });
+        };
+        dealCards();
+      }, 1500);
+    };
+
+    startCardAnimation();
+  }, [cards]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
