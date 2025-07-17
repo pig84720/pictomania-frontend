@@ -8,7 +8,7 @@ import { getRandomCards } from './services/api';
 const DIFFICULTIES = {
   easy: { name: '簡單', color: '#4CAF50', emoji: '😊', apiKey: 'green' },
   normal: { name: '普通', color: '#FF9800', emoji: '😐', apiKey: 'orange' },
-  hard: { name: '難', color: '#f44336', emoji: '😰', apiKey: 'blue' },
+  hard: { name: '困難', color: '#f44336', emoji: '😰', apiKey: 'blue' },
   extreme: { name: '爆炸難', color: '#9C27B0', emoji: '💥', apiKey: 'yellow' }
 };
 
