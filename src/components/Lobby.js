@@ -64,23 +64,6 @@ const Lobby = ({
         <p className="game-subtitle">(SLTJC特製版)</p>
       </motion.div>
 
-      {/* 使用統計顯示 */}
-      {usedCardsCount > 0 && (
-        <motion.div className="usage-display" variants={itemVariants}>
-          <div className="usage-info">
-            <span className="usage-icon">📈</span>
-            <span className="usage-text">已使用題目：{usedCardsCount} 張</span>
-          </div>
-          <button 
-            className="reset-all-link"
-            onClick={onResetAll}
-            title="完全重置遊戲"
-          >
-            🔄 完全重置
-          </button>
-        </motion.div>
-      )}
-
       {/* 難度選擇 */}
       <motion.div className="difficulty-section" variants={itemVariants}>
         <h2>選擇難度</h2>
